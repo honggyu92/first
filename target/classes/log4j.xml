@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+<<<<<<< HEAD
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+        </layout>   
+    </appender>
+    
+    <appender name="console-infolog" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %m%n" />
+        </layout>   
+    </appender>
+	
+	<!-- Application Loggers -->
+	<logger name="first" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<!-- Query Loggers -->
+	<logger name="jdbc.sqlonly" additivity="false">  
+    	<level value="INFO"/>  
+        <appender-ref ref="console-infolog"/>  
+    </logger>
+    
+    <logger name="jdbc.resultsettable" additivity="false">  
+    	<level value="INFO"/>  
+        <appender-ref ref="console"/>  
+    </logger>  
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="off"/>
+		<appender-ref ref="console" />
+	</root>
+	
+=======
  
     <!-- Appenders -->
     <appender name="console" class="org.apache.log4j.ConsoleAppender">
@@ -38,4 +77,5 @@
         <appender-ref ref="console" />
     </root>
      
+>>>>>>> 5da739f99efce9f5a88cb0a3c908b6e67d04ae2e
 </log4j:configuration>
